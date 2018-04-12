@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scene/VRLS_ROOM.unity
+  isLoaded: 1
+  isActive: 1
