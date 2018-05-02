@@ -45,6 +45,7 @@ public class MicrophoneTest : MonoBehaviour
 
             Debug.Log("녹음 시작 : " + microphone);
             audioSource.Play();
+            
         }
         else
         {
