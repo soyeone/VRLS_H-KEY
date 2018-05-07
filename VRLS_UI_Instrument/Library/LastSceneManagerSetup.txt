@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/VRLS_UI_mic_sy.unity
+- path: Assets/Scene/VRLS_testrecording.unity
   isLoaded: 1
   isActive: 1
