@@ -19,4 +19,8 @@ public class drumkey : MonoBehaviour {
         GetComponent<AudioSource>().Play();
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        GetComponent<AudioSource>().Play();
+    }
 }
