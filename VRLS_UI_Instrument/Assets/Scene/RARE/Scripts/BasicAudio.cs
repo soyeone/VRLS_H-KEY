@@ -297,25 +297,27 @@ public class BasicAudio : MonoBehaviour {
         AudioSource source;
             if (buttonclick)
             {
-                var clones = GameObject.FindGameObjectsWithTag("clone");
-                foreach (var clone in clones)
-                {
-                    Destroy(clone);
-                }
-                playbutton.SetActive(false);
-                buttonclick = false;
+            foreach(Transform child in parent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            playbutton.SetActive(false);
+            buttonclick = false;
                 allplayButton.GetComponentInChildren<Text>().text = "showindex";
             }
             else
             {
+            
                 source = audiosource.GetComponent<AudioSource>();
                 for (int i = 1; i < recordNum+2; i++) {
                     recordDropdown.value = i;
-                    GameObject obj = Instantiate(audiosource);
+                    GameObject obj = Instantiate(audiosource, transform.position, transform.rotation);
                     obj.transform.position = parent.transform.position;
                     obj.transform.parent = parent.transform;
                     source.clip = currentAsrc.clip;
                     Destroy(GameObject.Find("Recording(Clone)"));
+
                     //Instantiate(audiosource).transform.position = parent.transform.position;
                 }
                 playbutton.SetActive(true);
@@ -324,5 +326,5 @@ public class BasicAudio : MonoBehaviour {
             }
             
         }
-
+    //Update() 함수로 옮길예정
 }

@@ -8,8 +8,7 @@ public class selectplaybutton : MonoBehaviour
 
 	private bool isplaybutton = false;
 	public GameObject selectplaybtn;
-	private int k = 0;
-	private AudioSource[] audiosources = new AudioSource[100];
+	private AudioSource[] audiosources = new AudioSource[100]; // 임의로 100개만;
 	// Use this for initialization
 	void Start()
 	{
@@ -24,12 +23,23 @@ public class selectplaybutton : MonoBehaviour
 
 	public void selectplay()
 	{
-		//var selects = GameObject.FindGameObjectsWithTag("select");
-		GameObject[] obj;
+        int k = 0;
+
+        GameObject[] obj;
 		obj = GameObject.FindGameObjectsWithTag("select");
-		if (isplaybutton)
+
+        int i = 0;
+
+        foreach (GameObject select in obj)
+        {
+            audiosources[i] = obj[i].GetComponent<AudioSource>();
+            audiosources[i].Stop();
+            k++;
+            i++;
+        }
+
+        if (isplaybutton)
 		{
-			int l = 0;
 			//GameObject obj = GameObject.FindGameObjectWithTag("select");
 			//AudioSource source;
 			//source = obj.GetComponent<AudioSource>();
@@ -40,7 +50,8 @@ public class selectplaybutton : MonoBehaviour
 				k++;
 				l++;
             }*/
-			for(int o = 0; o<k; l++){
+
+			for(int o = 0; o<k; o++){
 				audiosources [o].Stop ();
 			}
 			isplaybutton = false;
@@ -48,15 +59,7 @@ public class selectplaybutton : MonoBehaviour
 		}
 		else
 		{
-			int i = 0;
-			//GameObject[] obj = GameObject.FindGameObjectWithTag("select");
-			foreach (GameObject select in obj) {
-				audiosources [i] = obj [i].GetComponent<AudioSource> ();
-				audiosources [i].Stop ();
-				k++;
-				i++;
-			}
-			for(int j = 0; i<k; i++)
+			for(int j = 0; j<k; j++)
 			{
 				audiosources[j].Play();
 			}
