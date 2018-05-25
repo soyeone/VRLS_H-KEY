@@ -1,10 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\selectplaybutton.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scene\RARE\Scripts\BasicAudio.cs">
     <Files>
-      <File FileName="Assets\Scene\RARE\Scripts\BasicAudio.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scene\RARE\Scripts\BasicAudio.cs" Line="306" Column="3" />
       <File FileName="Assets\Scene\RARE\Scripts\RARE.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\selectplaybutton.cs" Line="18" Column="2" />
+      <File FileName="Assets\Scripts\selectplaybutton.cs" Line="57" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
