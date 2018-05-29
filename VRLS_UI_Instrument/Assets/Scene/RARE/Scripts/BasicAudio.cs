@@ -38,12 +38,8 @@ public class BasicAudio : MonoBehaviour {
 	private bool PlayHeadTouch;
 	public WaveFormDraw wfDraw;
 
-    public GameObject allplayButton;
-    private bool buttonclick = false;
     public GameObject audiosource;
     public GameObject parent;
-    public GameObject playbutton;
-
 
 	void Update(){
 		//if recording
@@ -89,7 +85,8 @@ public class BasicAudio : MonoBehaviour {
 		}
 		if (isplaying && PlayHeadTouch == false) { //updates the playhead
 			playbackSli.value = currentAsrc.timeSamples * currentAsrc.clip.channels;
-		} 
+		}
+
 	}
 
 	public void MicStartStop(){
@@ -98,6 +95,14 @@ public class BasicAudio : MonoBehaviour {
 			playRecordingButton.SetActive(true);
 			RARE.Instance.StopMicRecording (CheckFileName("Mic Recording"), ClipLoaded, popUp);
 			recordNum++;
+
+			AudioSource source;
+			source = audiosource.GetComponent<AudioSource>();
+			GameObject obj = Instantiate(audiosource, transform.position, transform.rotation);
+			obj.transform.position = parent.transform.position;
+			obj.transform.parent = parent.transform;
+			source.clip = currentAsrc.clip;
+
 			isRecording = false;
 			info.text = "Done.";
 			micRecordButton.GetComponentInChildren<Text> ().text = "1. Mic Record";
@@ -119,13 +124,19 @@ public class BasicAudio : MonoBehaviour {
 			micRecordButton.SetActive(true);
 			playRecordingButton.SetActive(true);
 			RARE.Instance.StopAudioListenerRecording (CheckFileName("Audio Recording"), ClipLoaded, popUp);
-            //Instantiate(audiosource);
-            //audiosource.clip = currentAsrc.clip;
             recordNum++;
+
+			AudioSource source;
+			source = audiosource.GetComponent<AudioSource>();
+			GameObject obj = Instantiate(audiosource, transform.position, transform.rotation);
+			obj.transform.position = parent.transform.position;
+			obj.transform.parent = parent.transform;
+			source.clip = currentAsrc.clip;
+
 			isRecording = false;
 			info.text = "Done.";
             audioRecordButton.GetComponentInChildren<Text> ().text = "Audio Record";
-		} else {
+        } else {
 			if (currentAsrc.isPlaying) {
 				PlayStopRecording();
 			}
@@ -177,7 +188,8 @@ public class BasicAudio : MonoBehaviour {
 		string minutes = Mathf.Floor(tracklength / 60).ToString("0");
 		string seconds = (tracklength % 60).ToString("00");
 		info.text = "Stopped playback.";
-		playRecordingButton.GetComponentInChildren<Text>().text = "Play Recording";
+
+        playRecordingButton.GetComponentInChildren<Text>().text = "Play Recording";
 		if (val > 0) {
 			currentAsrc.clip = myClips [val - 1];
 			//where the waveform is drawn
@@ -292,39 +304,5 @@ public class BasicAudio : MonoBehaviour {
 		}
 		#endif
 	}
-    public void allplay()
-    {
-        AudioSource source;
-            if (buttonclick)
-            {
-            foreach(Transform child in parent.transform)
-            {
-                Destroy(child.gameObject);
-            }
-
-            playbutton.SetActive(false);
-            buttonclick = false;
-                allplayButton.GetComponentInChildren<Text>().text = "showindex";
-            }
-            else
-            {
-            
-                source = audiosource.GetComponent<AudioSource>();
-                for (int i = 1; i < recordNum+2; i++) {
-                    recordDropdown.value = i;
-                    GameObject obj = Instantiate(audiosource, transform.position, transform.rotation);
-                    obj.transform.position = parent.transform.position;
-                    obj.transform.parent = parent.transform;
-                    source.clip = currentAsrc.clip;
-                    Destroy(GameObject.Find("Recording(Clone)"));
-
-                    //Instantiate(audiosource).transform.position = parent.transform.position;
-                }
-                playbutton.SetActive(true);
-                buttonclick = true;
-                allplayButton.GetComponentInChildren<Text>().text = "remove";
-            }
-            
-        }
-    //Update() 함수로 옮길예정
+   
 }
