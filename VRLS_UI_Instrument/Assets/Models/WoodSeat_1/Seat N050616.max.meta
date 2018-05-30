@@ -1,11 +1,58 @@
 fileFormatVersion: 2
 guid: 959cd292e8db165408ad8491d0c72a8a
-timeCreated: 1525071160
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
-  fileIDToRecycleName: {}
-  externalObjects: {}
+  fileIDToRecycleName:
+    100000: AAC_013
+    100002: Group01
+    100004: leg 012
+    100006: leg 012.leg 008
+    100008: leg 012.leg 009
+    100010: leg 012.leg 010
+    100012: leg 012.leg 011
+    100014: //RootNode
+    100016: seat0
+    100018: VRayPlane01
+    400000: AAC_013
+    400002: Group01
+    400004: leg 012
+    400006: leg 012.leg 008
+    400008: leg 012.leg 009
+    400010: leg 012.leg 010
+    400012: leg 012.leg 011
+    400014: //RootNode
+    400016: seat0
+    400018: VRayPlane01
+    2300000: leg 012
+    2300002: leg 012.leg 008
+    2300004: leg 012.leg 009
+    2300006: leg 012.leg 010
+    2300008: leg 012.leg 011
+    2300010: seat0
+    3300000: leg 012
+    3300002: leg 012.leg 008
+    3300004: leg 012.leg 009
+    3300006: leg 012.leg 010
+    3300008: leg 012.leg 011
+    3300010: seat0
+    4300000: leg 012.leg 009
+    4300002: seat0
+    4300004: leg 012.leg 011
+    4300006: leg 012.leg 010
+    4300008: leg 012.leg 008
+    4300010: leg 012
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #25'
+    second: {fileID: 2100000, guid: b111e02188357084da4b4df6d2b3c8a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #26'
+    second: {fileID: 2100000, guid: 2fc6344796e8f3a4dad82997c4c09c27, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -24,6 +71,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -48,6 +96,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
