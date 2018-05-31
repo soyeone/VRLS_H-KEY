@@ -31,6 +31,9 @@ public class BasicAudio : MonoBehaviour {
 	public GameObject micRecordButton;
 	public GameObject playRecordingButton;
 	public GameObject playMusicButton;
+
+    public GameObject playbtn;
+    public GameObject stopbtn;
 	//waveform variables
 	private float tracklength = 0.0f;
 	private float currentTrackTime = 0.0f;
@@ -95,7 +98,9 @@ public class BasicAudio : MonoBehaviour {
 		if (isRecording) {
 			audioRecordButton.SetActive(true);
 			playRecordingButton.SetActive(false);
-			RARE.Instance.StopMicRecording (CheckFileName("Mic Recording"), ClipLoaded, popUp);
+            playbtn.SetActive(true);
+            stopbtn.SetActive(true);
+            RARE.Instance.StopMicRecording (CheckFileName("Mic Recording"), ClipLoaded, popUp);
 			recordNum++;
 
 			AudioSource source;
@@ -112,6 +117,8 @@ public class BasicAudio : MonoBehaviour {
 			micRecordButton.GetComponentInChildren<Text> ().text = "1. Mic Record";
 		} else {
 			audioRecordButton.SetActive(false);
+            playbtn.SetActive(false);
+            stopbtn.SetActive(false);
 			if (currentAsrc.isPlaying) {
 				PlayStopRecording();
 			}
@@ -127,7 +134,9 @@ public class BasicAudio : MonoBehaviour {
 		if (isRecording) {
 			micRecordButton.SetActive(true);
 			playRecordingButton.SetActive(false);
-			RARE.Instance.StopAudioListenerRecording (CheckFileName("Audio Recording"), ClipLoaded, popUp);
+            playbtn.SetActive(true);
+            stopbtn.SetActive(true);
+            RARE.Instance.StopAudioListenerRecording (CheckFileName("Audio Recording"), ClipLoaded, popUp);
 
             recordNum++;
 
@@ -148,7 +157,9 @@ public class BasicAudio : MonoBehaviour {
 			}
 			micRecordButton.SetActive(false);
 			playRecordingButton.SetActive(false);
-			info.text = "Audio recording...";
+            playbtn.SetActive(false);
+            stopbtn.SetActive(false);
+            info.text = "Audio recording...";
 			isRecording = true;
 			RARE.Instance.StartAudioListenerRecording ();
 			audioRecordButton.GetComponentInChildren<Text> ().text = "Stop";
