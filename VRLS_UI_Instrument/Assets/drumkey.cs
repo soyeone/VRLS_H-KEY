@@ -14,13 +14,23 @@ public class drumkey : MonoBehaviour {
 		
 	}
 
-    private void OnMouseDown()
+   /* private void OnMouseDown()
     {
         GetComponent<AudioSource>().Play();
 
-    }
+    }*/
+
+
     private void OnTriggerEnter(Collider other)
     {
         GetComponent<AudioSource>().Play();
+        Renderer renderer = gameObject.GetComponent<Renderer>();
+        renderer.material.color = Color.red;
+    }
+
+    private void OnTriggerExit()
+    {
+        Renderer renderer = gameObject.GetComponent<Renderer>();
+        renderer.material.color = Color.white;
     }
 }

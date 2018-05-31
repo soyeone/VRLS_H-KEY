@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/VRLS_Main_ver2.unity
+- path: Assets/Scene/VRLS_MAIN_FINAL.unity
   isLoaded: 1
   isActive: 1
